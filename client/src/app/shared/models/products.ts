@@ -8,4 +8,5 @@ export interface IProduct {
     productTypeId: number;
     productBrand: string;
     productBrandId: number;
+    new () : IProduct;
 }

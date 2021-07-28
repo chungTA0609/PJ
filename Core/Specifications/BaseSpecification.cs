@@ -15,35 +15,39 @@ namespace Core.Specifications
             Criteria = criteria;
         }
 
-        public Expression<Func<T, bool>> Criteria {get; }
+        public Expression<Func<T, bool>> Criteria { get; }
 
-        public List<Expression<Func<T, object>>> Include {get; } = new List<Expression<Func<T, object>>>();
+        public List<Expression<Func<T, object>>> Include { get; } = new List<Expression<Func<T, object>>>();
 
-        public Expression<Func<T, object>> OrderByDescending {get; private set;}
+        public Expression<Func<T, object>> OderBy { get; private set; }
 
-        public Expression<Func<T, object>> OderBy {get; private set;}
+        public Expression<Func<T, object>> OrderByDescending { get; private set; }
 
-        public int Take {get; private set;}
+        public int Take { get; private set; }
 
-        public int Skip {get; private set;}
-        public bool IsPagingEnable {get; private set;}
+        public int Skip { get; private set; }
+
+        public bool IsPagingEnable { get; private set; }
 
         protected void AddInclude(Expression<Func<T, object>> includeExpression)
         {
             Include.Add(includeExpression);
         }
-        protected void AddOderBy(Expression<Func<T, object>> oderByExpression)
+
+        protected void AddOderBy(Expression<Func<T, object>> orderByExpression)
         {
-            OderBy =oderByExpression;
+            OderBy = orderByExpression;
         }
-        protected void AddOderByDescending(Expression<Func<T, object>> oderByDescendingExpression)
+
+        protected void AddOrderByDescending(Expression<Func<T, object>> orderByDescExpression)
         {
-            OrderByDescending = oderByDescendingExpression;;
+            OrderByDescending = orderByDescExpression;
         }
+
         protected void ApplyPaging(int skip, int take)
         {
             Skip = skip;
-            Take =take;
+            Take = take;
             IsPagingEnable = true;
         }
     }

@@ -4,25 +4,26 @@ namespace Core.Specifications
 {
     public class ProductWithTypesAndBrandsSpecification : BaseSpecification<Product>
     {
-        public ProductWithTypesAndBrandsSpecification(ProductSpecParams productSpecParams)
-            : base(x => (string.IsNullOrEmpty(productSpecParams.Search) || x.Name.ToLower().Contains(productSpecParams.Search)) 
-            && (!productSpecParams.BrandId.HasValue || x.ProductBrandId == productSpecParams.BrandId) 
-            && (!productSpecParams.TypeId.HasValue || x.ProductTypeId == productSpecParams.TypeId))
+        public ProductWithTypesAndBrandsSpecification(ProductSpecParams productParams) : base(x => 
+            (string.IsNullOrEmpty(productParams.Search) || x.Name.ToLower().Contains(productParams.Search)) &&
+            (!productParams.BrandId.HasValue || x.ProductBrandId == productParams.BrandId) &&
+            (!productParams.TypeId.HasValue || x.ProductTypeId == productParams.TypeId)
+        )
         {
             AddInclude(x => x.ProductType);
             AddInclude(x => x.ProductBrand);
             AddOderBy(x => x.Name);
-            ApplyPaging(productSpecParams.PageSize * (productSpecParams.PageIndex - 1), productSpecParams.PageSize);
+            ApplyPaging(productParams.PageSize * (productParams.PageIndex - 1), productParams.PageSize);
 
-            if(!string.IsNullOrEmpty(productSpecParams.Sort))
+            if (!string.IsNullOrEmpty(productParams.Sort))
             {
-                switch(productSpecParams.Sort)
+                switch (productParams.Sort)
                 {
                     case "priceAsc":
-                        AddOderBy(p => p.Price);
+                        AddOderBy(x => (x.Price));
                         break;
                     case "priceDesc":
-                        AddOderByDescending(p => p.Price);
+                        AddOrderByDescending(p => p.Price);
                         break;
                     default:
                         AddOderBy(n => n.Name);
@@ -30,6 +31,7 @@ namespace Core.Specifications
                 }
             }
         }
+
         public ProductWithTypesAndBrandsSpecification(int id) : base(x => x.Id == id)
         {
             AddInclude(x => x.ProductType);

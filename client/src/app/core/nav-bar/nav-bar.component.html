@@ -3,9 +3,10 @@
   <img src="/assets/images/logo.png" style="max-height: 70px;" alt="logo" class="logo" routerLink="/">
 
     <nav class="my-2 my-md-0 mr-md-3 text-uppercase" style="margin-right: 10px">
-        <a class="me-3 py-2 text-dark text-decoration-none" style="margin-right: 50px;" href="#">Home</a>
-        <a class="me-3 py-2 text-dark text-decoration-none" style="margin-right: 50px;" href="#">Shop</a>
-        <a class="me-3 py-2 text-dark text-decoration-none" style="margin-right: 50px;" href="#">Contact</a>
+        <a class="me-3 py-2 text-decoration-none" style="margin-right: 50px;" [routerLink]="['/']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
+        <a class="me-3 py-2 text-decoration-none" style="margin-right: 50px;" [routerLink]="['/shop']" routerLinkActive="active">Shop</a>
+        <a class="me-3 py-2 text-decoration-none" style="margin-right: 50px;" href="#">Contact</a>
+        <a class="me-3 py-2 text-decoration-none" style="margin-right: 50px;" routerLink="test-error" routerLinkActive="active">Error</a>
     </nav>
     <div class="d-flex align-items-center">
         <a class="position-relative">

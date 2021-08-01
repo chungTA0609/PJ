@@ -1,7 +1,7 @@
 import { IProductType } from './../shared/models/productType';
 import { IBrand } from './../shared/models/brand';
 import { ShopService } from './shop.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { IProduct } from '../shared/models/products';
 import { ShopParam } from '../shared/models/shopParam';
 
@@ -11,6 +11,8 @@ import { ShopParam } from '../shared/models/shopParam';
   styleUrls: ['./shop.component.scss']
 })
 export class ShopComponent implements OnInit {
+  @ViewChild('search', { static: true })
+  searchTerm!: ElementRef;
   products: IProduct[] = [];
   brands: IBrand[] = [];
   types: IProductType[] = [];
@@ -57,11 +59,13 @@ export class ShopComponent implements OnInit {
 
   onBrandSelected(brandId: number){
     this.shopParam.brandIdSelected = brandId;
+    this.shopParam.pageNumber = 1;
     this.getProducts();
   }
 
   onTypeSelected(typeId: number){
     this.shopParam.typeIdSelected = typeId;
+    this.shopParam.pageNumber = 1;
     this.getProducts();
   }
 
@@ -70,8 +74,20 @@ export class ShopComponent implements OnInit {
     this.getProducts();
   }
 
-  onChanged(e : any){
-    this.shopParam.pageNumber = e;
+  onPageChanged(e : any){
+    if(this.shopParam.pageNumber !== e){
+      this.shopParam.pageNumber = e;
+    this.getProducts();
+    }
+  }
+  onSearch(){
+    this.shopParam.search = this.searchTerm.nativeElement.value;
+    this.shopParam.pageNumber = 1;
+    this.getProducts();
+  }
+  onReset(){
+    this.searchTerm.nativeElement.value = undefined;
+    this.shopParam = new ShopParam();
     this.getProducts();
   }
 }

@@ -1,3 +1,4 @@
+import { IProduct } from './../shared/models/products';
 import { ShopParam } from './../shared/models/shopParam';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -5,11 +6,12 @@ import { IBrand } from '../shared/models/brand';
 import { IPagination } from '../shared/models/pagination';
 import { IProductType } from '../shared/models/productType';
 import { map } from 'rxjs/operators'
+import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
 export class ShopService {
-  baseUrl = 'https://localhost:5001/api/';
+  baseUrl = environment.apiUrl;
   constructor(private http: HttpClient) { }
   getProducts(shopParam: ShopParam) {
     let params = new HttpParams();
@@ -21,6 +23,9 @@ export class ShopService {
       params = params.append('brandId', shopParam.typeIdSelected.toString());
     }
 
+    if(shopParam.search){
+      params = params.append('search', shopParam.search);
+    }
     params = params.append('sort', shopParam.sortSelect);
     params = params.append('pageIndex', shopParam.pageNumber.toString());
     params = params.append('pageIndex', shopParam.pageSize.toString());
@@ -31,6 +36,10 @@ export class ShopService {
           return response.body;
         })
       );
+  }
+
+  getProduct(id: number){
+    return this.http.get<IProduct>(this.baseUrl + 'product/' + id);
   }
 
   getBrands() {

@@ -1,25 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\chung\\code\\PJ\\API\\API.csproj": {}
+    "C:\\Users\\Chung\\Code\\PJ\\API\\API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\chung\\code\\PJ\\API\\API.csproj": {
+    "C:\\Users\\Chung\\Code\\PJ\\API\\API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\chung\\code\\PJ\\API\\API.csproj",
+        "projectUniqueName": "C:\\Users\\Chung\\Code\\PJ\\API\\API.csproj",
         "projectName": "API",
-        "projectPath": "C:\\Users\\chung\\code\\PJ\\API\\API.csproj",
-        "packagesPath": "C:\\Users\\chung\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\chung\\code\\PJ\\API\\obj\\",
+        "projectPath": "C:\\Users\\Chung\\Code\\PJ\\API\\API.csproj",
+        "packagesPath": "C:\\Users\\Chung\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Chung\\Code\\PJ\\API\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\chung\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Chung\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -32,8 +34,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\chung\\code\\PJ\\Infrastructure\\Infrastructure.csproj": {
-                "projectPath": "C:\\Users\\chung\\code\\PJ\\Infrastructure\\Infrastructure.csproj"
+              "C:\\Users\\Chung\\Code\\PJ\\Infrastructure\\Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\Chung\\Code\\PJ\\Infrastructure\\Infrastructure.csproj"
               }
             }
           }
@@ -95,26 +97,28 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\chung\\code\\PJ\\Core\\Core.csproj": {
+    "C:\\Users\\Chung\\Code\\PJ\\Core\\Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\chung\\code\\PJ\\Core\\Core.csproj",
+        "projectUniqueName": "C:\\Users\\Chung\\Code\\PJ\\Core\\Core.csproj",
         "projectName": "Core",
-        "projectPath": "C:\\Users\\chung\\code\\PJ\\Core\\Core.csproj",
-        "packagesPath": "C:\\Users\\chung\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\chung\\code\\PJ\\Core\\obj\\",
+        "projectPath": "C:\\Users\\Chung\\Code\\PJ\\Core\\Core.csproj",
+        "packagesPath": "C:\\Users\\Chung\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Chung\\Code\\PJ\\Core\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\chung\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Chung\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -159,26 +163,28 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\chung\\code\\PJ\\Infrastructure\\Infrastructure.csproj": {
+    "C:\\Users\\Chung\\Code\\PJ\\Infrastructure\\Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\chung\\code\\PJ\\Infrastructure\\Infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\Chung\\Code\\PJ\\Infrastructure\\Infrastructure.csproj",
         "projectName": "Infrastructure",
-        "projectPath": "C:\\Users\\chung\\code\\PJ\\Infrastructure\\Infrastructure.csproj",
-        "packagesPath": "C:\\Users\\chung\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\chung\\code\\PJ\\Infrastructure\\obj\\",
+        "projectPath": "C:\\Users\\Chung\\Code\\PJ\\Infrastructure\\Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\Chung\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Chung\\Code\\PJ\\Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\chung\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Chung\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -191,8 +197,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\chung\\code\\PJ\\Core\\Core.csproj": {
-                "projectPath": "C:\\Users\\chung\\code\\PJ\\Core\\Core.csproj"
+              "C:\\Users\\Chung\\Code\\PJ\\Core\\Core.csproj": {
+                "projectPath": "C:\\Users\\Chung\\Code\\PJ\\Core\\Core.csproj"
               }
             }
           }
@@ -259,7 +265,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }

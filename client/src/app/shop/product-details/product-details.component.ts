@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { IProduct } from 'src/app/shared/models/products';
 import { ActivatedRoute } from '@angular/router';
-import { ShopService } from '../shop.service';
-import { BreadcrumbService } from 'xng-breadcrumb';
 import { BasketService } from 'src/app/basket/basket.service';
+import { IProduct } from 'src/app/shared/models/product';
+import { BreadcrumbService } from 'xng-breadcrumb';
+import { ShopService } from '../shop.service';
 
 @Component({
   selector: 'app-product-details',
@@ -11,38 +11,39 @@ import { BasketService } from 'src/app/basket/basket.service';
   styleUrls: ['./product-details.component.scss']
 })
 export class ProductDetailsComponent implements OnInit {
-  product!: IProduct;
-  quantity: number = 1;
+  product: IProduct;
+  quantity = 1;
 
-  constructor(private shopService: ShopService, 
-              private activateRoute: ActivatedRoute, 
-              private bcService: BreadcrumbService, 
-              private basketService: BasketService) {
-    this.bcService.set('@productDetails', '');
-   }
+  constructor(private shopService: ShopService, private activatedRoute: ActivatedRoute,
+    private bcService: BreadcrumbService, private basketService: BasketService) {
+    this.bcService.set('@productDetails', ' ')
+  }
 
   ngOnInit(): void {
     this.loadProduct();
   }
-  addItemToBasket(){
+
+  loadProduct() {
+    this.shopService.getProduct(+this.activatedRoute.snapshot.paramMap.get('id')).subscribe(product => {
+      this.product = product;
+      this.bcService.set('@productDetails', product.name);
+    }, error => {
+      console.log(error);
+    })
+  }
+
+  addItemToBasket() {
     this.basketService.addItemToBasket(this.product, this.quantity);
   }
-  incrementQuantity(){
+
+  incrementQuantity() {
     this.quantity++;
   }
 
-  decrementQuantity(){
-    if(this.quantity > 1){
+  decrementQuantity() {
+    if (this.quantity > 1) {
       this.quantity--;
     }
-    this.quantity = 1;
   }
-  loadProduct(){
-    this.shopService.getProduct(+this.activateRoute.snapshot.paramMap!.get('id')!).subscribe(product => {
-      this.product = product;
-      this.bcService.set('@productDetails', product.name);
-    }, error =>{
-      console.log(error);
-    });
-  }
+
 }

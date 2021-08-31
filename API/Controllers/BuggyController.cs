@@ -36,8 +36,8 @@ namespace API.Controllers
         public ActionResult GetServerError()
         {
             var thing = _context.Products.Find(42);
-            var thingToreturn = thing.ToString();
-            return Ok();
+            var thingToreturn = thing?.ToString();
+            return Ok(new APIResponse(500));
         }
 
         [HttpGet("badrequest")]

@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infrastructure.Identity.Migrations
 {
     [DbContext(typeof(AppIdentityDbContext))]
-    [Migration("20210804074846_IdentityInitial")]
-    partial class IdentityInitial
+    [Migration("20210909194813_IdentityInital")]
+    partial class IdentityInital
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -20,11 +20,11 @@ namespace Infrastructure.Identity.Migrations
 
             modelBuilder.Entity("Core.Entity.Identity.Address", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("AddressId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("AppuserId")
+                    b.Property<string>("AppserId")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("City")
@@ -48,10 +48,7 @@ namespace Infrastructure.Identity.Migrations
                     b.Property<string>("Zipcode")
                         .HasColumnType("TEXT");
 
-                    b.HasKey("Id");
-
-                    b.HasIndex("AppuserId")
-                        .IsUnique();
+                    b.HasKey("AddressId");
 
                     b.ToTable("Address");
                 });
@@ -62,6 +59,9 @@ namespace Infrastructure.Identity.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<int>("AccessFailedCount")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int?>("AddressId")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("ConcurrencyStamp")
@@ -112,6 +112,8 @@ namespace Infrastructure.Identity.Migrations
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("AddressId");
 
                     b.HasIndex("NormalizedEmail")
                         .HasDatabaseName("EmailIndex");
@@ -251,11 +253,13 @@ namespace Infrastructure.Identity.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("Core.Entity.Identity.Address", b =>
+            modelBuilder.Entity("Core.Entity.Identity.AppUser", b =>
                 {
-                    b.HasOne("Core.Entity.Identity.AppUser", null)
-                        .WithOne("Address")
-                        .HasForeignKey("Core.Entity.Identity.Address", "AppuserId");
+                    b.HasOne("Core.Entity.Identity.Address", "Address")
+                        .WithMany()
+                        .HasForeignKey("AddressId");
+
+                    b.Navigation("Address");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -307,11 +311,6 @@ namespace Infrastructure.Identity.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("Core.Entity.Identity.AppUser", b =>
-                {
-                    b.Navigation("Address");
                 });
 #pragma warning restore 612, 618
         }
